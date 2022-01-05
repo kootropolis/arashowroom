@@ -1,0 +1,21 @@
+{% extends 'common.html' %}
+{% block content %}
+    {% for i in info %}
+    <body>
+        <h1>{{ i[1] }}</h1>
+        <div class="container">
+            <img src="{{ i[5] }}" alt="">
+            <p><b>Name:</b> {{ i[1] }} </p>
+            <p><b>Quoted Price:</b> {{ i[3] }} </p>
+            <p><b>Year Of Purchase:</b> {{ i[4] }} </p>
+            <p><b>Distance Run:</b>50000 km</p>
+            <a href="/test-drive/{{ i[0] }}" class="btn btn-primary" id= 'test'>Test Drive Now!</a>
+            <a href="/mail" class="btn btn-secondary">Contact Seller</a>
+            <ul>
+                <h5>Specs</h5>
+                    <li>{{ specs }}</li> 
+            </ul>
+        </div>
+    </body>
+    {% endfor %}
+{% endblock content %}

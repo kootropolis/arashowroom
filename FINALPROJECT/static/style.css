@@ -1,0 +1,26 @@
+#buyer{
+    background-image: url('https://wallpapercave.com/wp/Y5rHdSN.jpg'); 
+    color: white; 
+    background-size: cover;
+}
+
+.card{
+    width:98%; 
+    margin: 10px; 
+    color: black;
+}
+
+.container{
+    border: 2px solid grey; 
+    border-radius: 1%;
+}
+
+img{
+    display: block;
+    margin: 10px;
+}
+
+#test{
+    margin-top: 10px; 
+    margin-bottom: 10px
+}

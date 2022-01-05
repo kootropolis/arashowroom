@@ -1,0 +1,13 @@
+{% extends 'common.html' %}
+{% block content %}
+<body>
+    <h1>Service centres nearby</h1>
+    <form action="", method="POST">
+        <label for="item">Type Your Location: </label>
+        <input type="text" name="city" placeholder ="Ex: Bangalore, KA">
+        <br>
+        <button class="btn btn-success">Submit</button>
+    </form>
+    <img src="static/map.png" alt="Not loaded" srcset="">
+</body>
+{% endblock content %}

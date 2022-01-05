@@ -1,0 +1,23 @@
+{% extends 'common.html' %}
+{% block content %}
+<body id="buyer">
+    <h1>Buyer Page</h1>
+    <hr>
+    <form action="" method="POST">
+        <label for="item">The Ideal Car For You!</label>
+        <input type="text" name ="search" placeholder ="Search">
+        <br>
+        <button class="btn btn-success">Submit</button>
+    </form>
+    {% for i in data %}
+        <div class="card">
+            <div class="card-body">
+                <h2>{{ i[1] }}</h2>
+                <a href="/buyers/{{ i[0] }}" class="btn btn-danger">Check it out!</a>
+            </div>
+        </div>
+    {% endfor %}
+    {{ date }}
+</body>
+{% endblock content %}
+

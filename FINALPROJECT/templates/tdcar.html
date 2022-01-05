@@ -1,0 +1,26 @@
+{% extends 'common.html' %}
+{% block content %}
+    <body>
+        <div class="container">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in get_flashed_messages() %}
+                    <div class="alert alert-warning">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+        {% for i in slot_data %}
+            <h1>{{ i[1] }}</h1>
+            <div class="container">
+                <img src="{{ i[8] }}" alt="Not loaded" srcset="">
+                <div>Car_ID: {{ i[0] }}</div>
+                <div>Available Slot: {{ i[2] }}</div>
+                <a href="/test-drive/{{ i[0] }}/book" class="btn btn-secondary" id="test">Book now!</a>
+            </div>
+        {% endfor %}
+    </body>
+{% endblock content %}
