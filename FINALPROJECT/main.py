@@ -17,7 +17,7 @@ app=Flask(__name__)
 app.secret_key="password"
 
 mysql=MySQL(app)
-app.config["MYSQL_HOST"]="127.0.0.1"
+app.config["MYSQL_HOST"]="localhost"
 app.config["MYSQL_USER"]="root"
 app.config["MYSQL_PASSWORD"]="password"
 app.config["MYSQL_DB"]="project"
@@ -137,12 +137,12 @@ def notify():
         if rec[0] == 'Car_ID':
             continue
         if rec[2] >= date:
-            notif = Mail(from_email='rahulsiv2108@gmail.com',
+            notif = Mail(from_email='email@gmail.com',
                          to_emails=rec[3],
                          subject='Time to take your car to the service centre',
                          html_content= "<p>Hi! It's been 6 months since you have had your car checked. Ensure that you take your car to the nearest showroom for better performance! Happy driving!</p>"
                         )
-            sg_key = "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"
+            sg_key = "<key>"
             try:
                 mail = SendGridAPIClient(sg_key)
                 mail.send(notif)
@@ -189,11 +189,11 @@ def send(car_id):
     cursor.execute('select seller_email from buyer where car_id= % s;', (car_id))
     data = cursor.fetchone()
     msg = Mail(
-        from_email='rahulsiv2108@gmail.com',
+        from_email='email@gmail.com',
         to_emails='sidsiv2007@gmail.com',
         subject='Seller contact info',
         html_content=f'<div>Seller contact info has been sent!</div><p>{data}</p>')
-    sg_key = "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"
+    sg_key = "<key>"
     try:
         sg = SendGridAPIClient(sg_key)
         res = sg.send(msg)
@@ -238,12 +238,12 @@ def confirm(car_id):
     cursor = mysql.connection.cursor()
     cursor.execute('select seller_email from buyer where Car_ID = % s;', (car_id,))
     email = cursor.fetchone()
-    td_update = Mail(from_email='rahulsiv2108@gmail.com',
+    td_update = Mail(from_email='email@gmail.com',
                      to_emails=email[0],
                      subject= 'Test drive slot update',
                      html_content= '<p>A prospective buyer has booked a slot to test drive your car.</p>'
                     )
-    sg_key = "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"
+    sg_key = "<key>"
     try:
         sg = SendGridAPIClient(sg_key)
         sg.send(td_update)
